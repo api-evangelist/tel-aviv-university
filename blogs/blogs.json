@@ -1,0 +1,14 @@
+{
+  "repo": "tel-aviv-university",
+  "feeds": [
+    {
+      "source": "https://english.tau.ac.il/",
+      "feed_url": "https://english.tau.ac.il/news",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}

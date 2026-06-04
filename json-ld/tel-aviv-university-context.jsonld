@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "tau": "https://english.tau.ac.il/vocab#",
+    "@vocab": "https://schema.org/",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "identifier": "schema:identifier",
+    "TelAvivUniversity": {
+      "@id": "tau:TelAvivUniversity",
+      "@type": "schema:CollegeOrUniversity"
+    },
+    "library": {
+      "@id": "tau:library",
+      "@type": "schema:Library"
+    },
+    "catalog": {
+      "@id": "tau:catalog",
+      "@type": "schema:DataCatalog"
+    },
+    "course": {
+      "@id": "tau:course",
+      "@type": "schema:Course"
+    },
+    "courseCode": "schema:courseCode",
+    "studyPlan": {
+      "@id": "tau:studyPlan",
+      "@type": "schema:EducationalOccupationalProgram"
+    },
+    "creativeWork": {
+      "@id": "tau:catalogedResource",
+      "@type": "schema:CreativeWork"
+    }
+  },
+  "@type": "CollegeOrUniversity",
+  "@id": "https://english.tau.ac.il/",
+  "name": "Tel Aviv University",
+  "url": "https://english.tau.ac.il/",
+  "description": "Tel Aviv University (TAU) is Israel's largest public research university. Its machine-accessible surface is limited to standard third-party ExLibris Primo/Alma library platform endpoints and unofficial community tooling.",
+  "library": {
+    "name": "Tel Aviv University Libraries (DaTA Search)",
+    "url": "https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en",
+    "identifier": "972TAU_INST:TAU"
+  }
+}
