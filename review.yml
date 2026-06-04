@@ -1,0 +1,54 @@
+---
+name: Tel Aviv University
+description: Tel Aviv University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      No official, self-service public developer portal or open-data API program was
+      found for Tel Aviv University. Confirmed live surfaces are third-party platform
+      standards: an ExLibris Primo discovery interface (institution code
+      972TAU_INST:TAU, branded "DaTA Search") backed by an Alma platform that supports
+      the standard Primo Search REST API and Alma OAI-PMH harvesting — both requiring
+      institution-provisioned ExLibris keys, not TAU-published docs. The only
+      programmatic "TAU API" surface is unofficial student tooling (Arazim Project's
+      tau-tools) that wraps Moodle/IMS/course data. All cataloged endpoints were probed
+      live; no TAU-specific endpoints were fabricated. Rated 2 (low public API
+      maturity: gated/platform-standard only).
+    endpoints:
+      - url: https://english.tau.ac.il/
+        status: 200
+        note: Official English website, live.
+      - url: https://www.tau.ac.il/
+        status: 200
+        note: Official Hebrew website, live.
+      - url: https://en-libraries.tau.ac.il/
+        status: 200
+        note: TAU Libraries site; confirms ExLibris Primo "DaTA Search".
+      - url: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
+        status: 200
+        note: Primo VE discovery, institution code 972TAU_INST:TAU; standard Primo Search API behind it.
+      - url: https://tau-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=TAU
+        status: 200
+        note: Legacy Primo Explore discovery interface, live.
+      - url: https://developers.exlibrisgroup.com/alma/integrations/oai/
+        status: 200
+        note: ExLibris Alma OAI-PMH platform docs (not TAU-specific).
+      - url: https://developers.exlibrisgroup.com/primo/apis/
+        status: 200
+        note: ExLibris Primo Search REST API platform docs (not TAU-specific).
+      - url: https://github.com/arazimproject/tau-tools
+        status: 200
+        note: Unofficial community library wrapping TAU Moodle/IMS/course data.
+      - url: https://il.linkedin.com/school/tel-aviv-university/
+        status: 999
+        note: LinkedIn school page; 999 is LinkedIn bot-blocking, page exists.
+      - url: https://x.com/telavivuni
+        status: 200
+        note: Official X/Twitter account @TelAvivUni.
+      - url: https://api-na.hosted.exlibrisgroup.com/
+        status: 404
+        note: ExLibris API gateway root returns 404; real calls use versioned paths with API keys.

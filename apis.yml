@@ -1,0 +1,94 @@
+---
+aid: tel-aviv-university
+name: Tel Aviv University
+description: >-
+  Tel Aviv University (TAU) is Israel's largest public research university, located in
+  Tel Aviv, and is ranked #209 in the QS World University Rankings 2025. TAU does not
+  publish a centralized, public developer portal or open-data API program. Its
+  confirmed machine-accessible surface is limited to standard third-party platform
+  endpoints: an ExLibris Primo discovery interface (institution code 972TAU_INST:TAU)
+  backed by an Alma library services platform that exposes the usual Primo Search REST
+  API and Alma OAI-PMH harvesting endpoints. Student-built, unofficial tooling also
+  scrapes/wraps TAU's Moodle and information-management (IMS) systems. No officially
+  documented, self-service public API was found.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Israel
+  - Library
+  - Discovery
+  - Research
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: tel-aviv-university:primo-discovery
+    name: TAU Libraries Primo Discovery (DaTA Search)
+    description: >-
+      Tel Aviv University Libraries run ExLibris Primo for catalog/discovery (branded
+      "DaTA Search"), institution code 972TAU_INST:TAU. The hosted Primo platform
+      exposes the standard Primo Search REST API. Programmatic access requires ExLibris
+      API keys provisioned through the institution; there is no TAU-specific public
+      developer portal.
+    humanURL: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
+    baseURL: https://tau.primo.exlibrisgroup.com/discovery/search
+    tags: [ Library, Discovery, Primo, ExLibris, Catalog ]
+    properties:
+      - type: Documentation
+        url: https://developers.exlibrisgroup.com/primo/apis/
+      - type: Website
+        url: https://en-libraries.tau.ac.il/
+  - aid: tel-aviv-university:alma-oai-pmh
+    name: TAU Libraries Alma / OAI-PMH Metadata Harvesting
+    description: >-
+      The TAU Libraries Primo discovery layer is backed by the ExLibris Alma library
+      services platform. Alma deployments expose the standard OAI-PMH metadata
+      harvesting protocol and the Alma REST APIs. Endpoints and harvesting access are
+      platform-standard and institution-provisioned; TAU does not publish a dedicated
+      OAI-PMH base URL or developer docs of its own.
+    humanURL: https://developers.exlibrisgroup.com/alma/integrations/oai/
+    tags: [ Library, OAI-PMH, Alma, ExLibris, Metadata, Harvesting ]
+    properties:
+      - type: Documentation
+        url: https://developers.exlibrisgroup.com/alma/integrations/oai/
+  - aid: tel-aviv-university:unofficial-tau-tools
+    name: Unofficial tau-tools (Moodle / IMS / course data)
+    description: >-
+      A community/student project (Arazim Project) that programmatically wraps several
+      TAU web systems — including the Moodle LMS, the information-management (IMS) grade
+      system, and course/study-plan data — and republishes aggregated course and plan
+      JSON. This is unofficial, third-party tooling, not an official TAU API, and may
+      break or violate terms of use.
+    humanURL: https://github.com/arazimproject/tau-tools
+    tags: [ Unofficial, Moodle, LMS, Courses, Community, ThirdParty ]
+    properties:
+      - type: Documentation
+        url: https://github.com/arazimproject/tau-tools
+      - type: GitHub
+        url: https://github.com/arazimproject/tau-tools
+common:
+  - type: Website
+    url: https://english.tau.ac.il/
+  - type: GitHub
+    url: https://github.com/arazimproject
+  - type: LinkedIn
+    url: https://il.linkedin.com/school/tel-aviv-university/
+  - type: Twitter
+    url: https://x.com/telavivuni
+  - type: Plans
+    url: plans/tel-aviv-university-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tel-aviv-university-rate-limits.yml
+  - type: FinOps
+    url: finops/tel-aviv-university-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
