@@ -73,6 +73,8 @@ apis:
       - type: GitHub
         url: https://github.com/arazimproject/tau-tools
 common:
+  - type: DomainSecurity
+    url: security/tel-aviv-university-domain-security.yml
   - type: Website
     url: https://english.tau.ac.il/
   - type: GitHub
