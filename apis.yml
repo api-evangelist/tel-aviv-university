@@ -1,4 +1,3 @@
----
 aid: tel-aviv-university
 name: Tel Aviv University
 description: >-
@@ -12,9 +11,21 @@ description: >-
   scrapes/wraps TAU's Moodle and information-management (IMS) systems. No officially
   documented, self-service public API was found.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tel-aviv-university.png
 url: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/apis.yml
 tags:
   - Education
@@ -25,7 +36,7 @@ tags:
   - Discovery
   - Research
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
   - aid: tel-aviv-university:primo-discovery
@@ -38,7 +49,7 @@ apis:
       developer portal.
     humanURL: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
     baseURL: https://tau.primo.exlibrisgroup.com/discovery/search
-    tags: [ Library, Discovery, Primo, ExLibris, Catalog ]
+    tags: [Library, Discovery, Primo, ExLibris, Catalog]
     properties:
       - type: Documentation
         url: https://developers.exlibrisgroup.com/primo/apis/
@@ -53,7 +64,7 @@ apis:
       platform-standard and institution-provisioned; TAU does not publish a dedicated
       OAI-PMH base URL or developer docs of its own.
     humanURL: https://developers.exlibrisgroup.com/alma/integrations/oai/
-    tags: [ Library, OAI-PMH, Alma, ExLibris, Metadata, Harvesting ]
+    tags: [Library, OAI-PMH, Alma, ExLibris, Metadata, Harvesting]
     properties:
       - type: Documentation
         url: https://developers.exlibrisgroup.com/alma/integrations/oai/
@@ -66,7 +77,7 @@ apis:
       JSON. This is unofficial, third-party tooling, not an official TAU API, and may
       break or violate terms of use.
     humanURL: https://github.com/arazimproject/tau-tools
-    tags: [ Unofficial, Moodle, LMS, Courses, Community, ThirdParty ]
+    tags: [Unofficial, Moodle, LMS, Courses, Community, ThirdParty]
     properties:
       - type: Documentation
         url: https://github.com/arazimproject/tau-tools
