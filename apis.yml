@@ -49,7 +49,18 @@ apis:
       developer portal.
     humanURL: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
     baseURL: https://tau.primo.exlibrisgroup.com/discovery/search
-    tags: [Library, Discovery, Primo, ExLibris, Catalog]
+    tags:
+    - Library
+    - Discovery
+    - Primo
+    - Ex Libris
+    - Catalog
+    tags_raw:
+    - Library
+    - Discovery
+    - Primo
+    - ExLibris
+    - Catalog
     properties:
       - type: Documentation
         url: https://developers.exlibrisgroup.com/primo/apis/
@@ -64,7 +75,20 @@ apis:
       platform-standard and institution-provisioned; TAU does not publish a dedicated
       OAI-PMH base URL or developer docs of its own.
     humanURL: https://developers.exlibrisgroup.com/alma/integrations/oai/
-    tags: [Library, OAI-PMH, Alma, ExLibris, Metadata, Harvesting]
+    tags:
+    - Library
+    - OAI-PMH
+    - Alma
+    - Ex Libris
+    - Metadata
+    - Harvesting
+    tags_raw:
+    - Library
+    - OAI-PMH
+    - Alma
+    - ExLibris
+    - Metadata
+    - Harvesting
     properties:
       - type: Documentation
         url: https://developers.exlibrisgroup.com/alma/integrations/oai/
@@ -77,7 +101,20 @@ apis:
       JSON. This is unofficial, third-party tooling, not an official TAU API, and may
       break or violate terms of use.
     humanURL: https://github.com/arazimproject/tau-tools
-    tags: [Unofficial, Moodle, LMS, Courses, Community, ThirdParty]
+    tags:
+    - Unofficial
+    - Moodle
+    - LMS
+    - Courses
+    - Community
+    - Third-Party
+    tags_raw:
+    - Unofficial
+    - Moodle
+    - LMS
+    - Courses
+    - Community
+    - ThirdParty
     properties:
       - type: Documentation
         url: https://github.com/arazimproject/tau-tools
