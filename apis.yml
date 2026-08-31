@@ -1,155 +1,348 @@
+---
 aid: tel-aviv-university
 name: Tel Aviv University
+x-type: university
+x-category: Public Research University
 description: >-
-  Tel Aviv University (TAU) is Israel's largest public research university, located in
-  Tel Aviv, and is ranked #209 in the QS World University Rankings 2025. TAU does not
-  publish a centralized, public developer portal or open-data API program. Its
-  confirmed machine-accessible surface is limited to standard third-party platform
-  endpoints: an ExLibris Primo discovery interface (institution code 972TAU_INST:TAU)
-  backed by an Alma library services platform that exposes the usual Primo Search REST
-  API and Alma OAI-PMH harvesting endpoints. Student-built, unofficial tooling also
-  scrapes/wraps TAU's Moodle and information-management (IMS) systems. No officially
-  documented, self-service public API was found.
+  Tel Aviv University (TAU / אוניברסיטת תל אביב) is Israel's largest university, a public
+  research institution in Tel Aviv with roughly 30,000 students across nine faculties, and a
+  member of the Israeli research-university group served by the Inter-University Computation
+  Center (IUCC). Re-profiled on 2026-08-30 with operator attribution settled before any artifact
+  was saved: TAU operates NO central developer portal, NO open-data portal and NO
+  institution-operated public API. api.tau.ac.il, developer.tau.ac.il, opendata.tau.ac.il and
+  services.tau.ac.il do not resolve; data.tau.ac.il and digital.tau.ac.il resolve only as vanity
+  redirects. Every machine-readable, callable surface TAU has is a vendor product deployed under
+  the institution's name and is recorded here as a TENANT relationship, not as TAU engineering:
+  the Ex Libris Alma OAI-PMH 2.0 service and SRU 1.2 search service for the library record, the
+  Ex Libris Primo VE discovery layer (institution code 972TAU_INST:TAU, branded "DaTA Search"),
+  the Elsevier Pure CRIS at cris.tau.ac.il whose OAI-PMH endpoint self-identifies as "Pure OAI
+  Repository" administered from purehosted@elsevier.com, and TAU's SAML identity, which is a
+  tau.ac.il scope on the IUCC national proxy identity provider in eduGAIN rather than a TAU-
+  registered entity of its own. The only machine-readable documents TAU itself serves from its
+  own hosts are the Drupal RSS 2.0 news feeds at www.tau.ac.il/rss.xml and
+  english.tau.ac.il/rss.xml, and its public timetable and course search at
+  www.ims.tau.ac.il/Tal/KR/Search_P.aspx is an HTML form with no API behind it. TAU publishes an
+  institutional generative-AI guidance set for students and faculty through its Deanery for
+  Innovation in Teaching and Learning. There is no official institution-wide GitHub organisation;
+  code lives in lab and student-club orgs.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
-  callable_host: false
-  label: Hosted service · you call their endpoint
-  confidence: medium
+  commercial: false
+  callable_host: true
+  label: Hosted service · the callable endpoints are vendor platforms under TAU's name
+  confidence: high
   source:
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - conformance/tel-aviv-university-conformance.yml
+  generated: '2026-08-30'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: none
   trial: false
-  try_now: false
-  public: false
-  label: Free
-  confidence: medium
+  try_now: true
+  public: true
+  label: Free · OAI-PMH and SRU harvesting are open and keyless; Primo and Pure REST are keyed
+  confidence: high
   source:
-    - plans
-  generated: '2026-07-22'
-  method: derived
+  - conformance/tel-aviv-university-conformance.yml
+  generated: '2026-08-30'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tel-aviv-university.png
 url: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
-  - University
-  - Israel
-  - Library
-  - Discovery
-  - Research
+- University
+- Higher Education
+- Education
+- Israel
+- Research
+- Research Repository
+- Library
+- Discovery
+- OAI-PMH
+- Identity Federation
+- Course Catalog
+- Middle East
 created: '2026-06-03'
-modified: '2026-07-25'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-  - aid: tel-aviv-university:primo-discovery
-    name: TAU Libraries Primo Discovery (DaTA Search)
-    description: >-
-      Tel Aviv University Libraries run ExLibris Primo for catalog/discovery (branded
-      "DaTA Search"), institution code 972TAU_INST:TAU. The hosted Primo platform
-      exposes the standard Primo Search REST API. Programmatic access requires ExLibris
-      API keys provisioned through the institution; there is no TAU-specific public
-      developer portal.
-    humanURL: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
-    baseURL: https://tau.primo.exlibrisgroup.com/discovery/search
-    tags:
-    - Library
-    - Discovery
-    - Primo
-    - Ex Libris
-    - Catalog
-    tags_raw:
-    - Library
-    - Discovery
-    - Primo
-    - ExLibris
-    - Catalog
-    properties:
-      - type: Documentation
-        url: https://developers.exlibrisgroup.com/primo/apis/
-      - type: Website
-        url: https://en-libraries.tau.ac.il/
-  - aid: tel-aviv-university:alma-oai-pmh
-    name: TAU Libraries Alma / OAI-PMH Metadata Harvesting
-    description: >-
-      The TAU Libraries Primo discovery layer is backed by the ExLibris Alma library
-      services platform. Alma deployments expose the standard OAI-PMH metadata
-      harvesting protocol and the Alma REST APIs. Endpoints and harvesting access are
-      platform-standard and institution-provisioned; TAU does not publish a dedicated
-      OAI-PMH base URL or developer docs of its own.
-    humanURL: https://developers.exlibrisgroup.com/alma/integrations/oai/
-    tags:
-    - Library
-    - OAI-PMH
-    - Alma
-    - Ex Libris
-    - Metadata
-    - Harvesting
-    tags_raw:
-    - Library
-    - OAI-PMH
-    - Alma
-    - ExLibris
-    - Metadata
-    - Harvesting
-    properties:
-      - type: Documentation
-        url: https://developers.exlibrisgroup.com/alma/integrations/oai/
-  - aid: tel-aviv-university:unofficial-tau-tools
-    name: Unofficial tau-tools (Moodle / IMS / course data)
-    description: >-
-      A community/student project (Arazim Project) that programmatically wraps several
-      TAU web systems — including the Moodle LMS, the information-management (IMS) grade
-      system, and course/study-plan data — and republishes aggregated course and plan
-      JSON. This is unofficial, third-party tooling, not an official TAU API, and may
-      break or violate terms of use.
-    humanURL: https://github.com/arazimproject/tau-tools
-    tags:
-    - Unofficial
-    - Moodle
-    - LMS
-    - Courses
-    - Community
-    - Third-Party
-    tags_raw:
-    - Unofficial
-    - Moodle
-    - LMS
-    - Courses
-    - Community
-    - ThirdParty
-    properties:
-      - type: Documentation
-        url: https://github.com/arazimproject/tau-tools
-      - type: GitHub
-        url: https://github.com/arazimproject/tau-tools
-common:
-  - type: DomainSecurity
-    url: security/tel-aviv-university-domain-security.yml
+- aid: tel-aviv-university:alma-oai-pmh
+  name: TAU Libraries Alma OAI-PMH Metadata Harvesting
+  x-operator: tenant
+  description: >-
+    Open Archives Initiative Protocol for Metadata Harvesting 2.0 service for the Tel Aviv
+    University library record, served from TAU's Ex Libris Alma tenant. Verified live and keyless
+    on 2026-08-30: Identify returns repositoryName "972TAU", baseURL
+    https://tau.alma.exlibrisgroup.com/view/oai/972TAU_INST/request, repositoryIdentifier
+    alma.972TAU_INST, protocolVersion 2.0 and an adminEmail on tauex.tau.ac.il — the catalogue is
+    TAU's and it is administered by TAU library staff. ListSets returns the institution's own
+    published sets (BrowZine, per-library lendable journal and book sets). The contract, however,
+    is Ex Libris's Alma product, identical in every Alma customer's tenant, so it is recorded as a
+    tenant relationship and no vendor specification is stored under this institution.
+  humanURL: https://en-libraries.tau.ac.il/
+  baseURL: https://tau.alma.exlibrisgroup.com/view/oai/972TAU_INST/request
+  tags:
+  - Library
+  - OAI-PMH
+  - Alma
+  - ExLibris
+  - Metadata
+  - Harvesting
+  tags_raw:
+  - Library
+  - OAI-PMH
+  - Alma
+  - ExLibris
+  - Metadata
+  - Harvesting
+  properties:
+  - type: Documentation
+    url: https://developers.exlibrisgroup.com/alma/integrations/oai/
+  - type: Conformance
+    url: conformance/tel-aviv-university-conformance.yml
+- aid: tel-aviv-university:alma-sru
+  name: TAU Libraries Alma SRU Search
+  x-operator: tenant
+  description: >-
+    SRU (Search/Retrieve via URL) 1.2 search service over the Tel Aviv University library
+    catalogue, served from TAU's Ex Libris Alma tenant. Verified live and keyless on 2026-08-30:
+    operation=explain returns a 205 KB SRU explainResponse with recordSchema
+    http://explain.z3950.org/dtd/2.1/. Like the OAI-PMH service the records are TAU's and the
+    protocol implementation is Ex Libris's, so this is a tenant relationship, not TAU engineering.
+  humanURL: https://en-libraries.tau.ac.il/
+  baseURL: https://tau.alma.exlibrisgroup.com/view/sru/972TAU_INST
+  tags:
+  - Library
+  - SRU
+  - Search
+  - Alma
+  - ExLibris
+  - Catalog
+  tags_raw:
+  - Library
+  - SRU
+  - Search
+  - Alma
+  - ExLibris
+  - Catalog
+  properties:
+  - type: Documentation
+    url: https://developers.exlibrisgroup.com/alma/integrations/sru/
+  - type: Conformance
+    url: conformance/tel-aviv-university-conformance.yml
+- aid: tel-aviv-university:cris-oai-pmh
+  name: TAU Research Portal (Elsevier Pure) OAI-PMH
+  x-operator: tenant
+  description: >-
+    Tel Aviv University's current research information system is Elsevier Pure, published as the
+    TAU Research Portal at cris.tau.ac.il. The host sits on TAU's own registrable domain but
+    CNAMEs to telaviv.elsevierpure.com and then to eu.prod.elsevierpure.com, and the deployment
+    does not self-identify as TAU: Identify returns repositoryName "Pure OAI Repository" with
+    adminEmail purehosted@elsevier.com, earliestDatestamp 2020-03-22. That makes it a hosted
+    vendor deployment under the institution's name — a tenant relationship — rather than an
+    institution-operated service. The OAI-PMH endpoint itself is live and keyless (verified
+    2026-08-30) and serves seven metadata prefixes (oai_dc, qdc, mods, mods_swepub, nl_didl,
+    xmetadiss, uketd_dc) across persons:all, publications:all and per-year sets. The companion
+    Pure Web Service at cris.tau.ac.il/ws/api is gated — it returns HTTP 401 "Please provide a
+    valid API key" — and its contract is Elsevier's, so no Pure specification is stored here.
+  humanURL: https://cris.tau.ac.il/
+  baseURL: https://cris.tau.ac.il/ws/oai
+  tags:
+  - Research Repository
+  - CRIS
+  - OAI-PMH
+  - Pure
+  - Elsevier
+  - Publications
+  tags_raw:
+  - Research Repository
+  - CRIS
+  - OAI-PMH
+  - Pure
+  - Elsevier
+  - Publications
+  properties:
   - type: Website
-    url: https://english.tau.ac.il/
-  - type: GitHub
-    url: https://github.com/arazimproject
-  - type: LinkedIn
-    url: https://il.linkedin.com/school/tel-aviv-university/
-  - type: Twitter
-    url: https://x.com/telavivuni
-  - type: Plans
-    url: plans/tel-aviv-university-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/tel-aviv-university-rate-limits.yml
-  - type: FinOps
-    url: finops/tel-aviv-university-finops.yml
-  - type: Review
-    url: review.yml
+    url: https://cris.tau.ac.il/
+  - type: Conformance
+    url: conformance/tel-aviv-university-conformance.yml
+- aid: tel-aviv-university:primo-discovery
+  name: TAU Libraries Primo VE Discovery (DaTA Search)
+  x-operator: tenant
+  description: >-
+    Tel Aviv University Libraries run Ex Libris Primo VE for catalogue discovery, branded "DaTA
+    Search", institution code 972TAU_INST:TAU, on the TAU-specific tenant host
+    tau.primo.exlibrisgroup.com. TAU's own data.tau.ac.il vanity host redirects to it. The Primo
+    Search REST API behind the interface is provisioned per institution through Ex Libris API
+    keys; no TAU-published developer portal or key request path exists. Recorded as a tenant
+    relationship — the discovery index is TAU's, the contract is Ex Libris's.
+  humanURL: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
+  baseURL: https://tau.primo.exlibrisgroup.com/discovery/search
+  tags:
+  - Library
+  - Discovery
+  - Primo
+  - ExLibris
+  - Catalog
+  tags_raw:
+  - Library
+  - Discovery
+  - Primo
+  - ExLibris
+  - Catalog
+  properties:
+  - type: Documentation
+    url: https://developers.exlibrisgroup.com/primo/apis/
+  - type: Website
+    url: https://en-libraries.tau.ac.il/
+- aid: tel-aviv-university:iucc-identity-federation
+  name: TAU SAML Identity in the IUCC Identity Federation
+  x-operator: tenant
+  description: >-
+    Tel Aviv University federates through the IUCC Identity Federation (IUCCIF), the Israeli
+    national federation operated by the Inter-University Computation Center, an eduGAIN member
+    since 2014-07-07 and in production since 2014-11-25. Checked against the eduGAIN entity
+    database on 2026-08-30: TAU publishes NO eduGAIN-registered identity provider of its own.
+    Its identity appears instead as a shibMD:Scope value — tau.ac.il — on IUCC's proxy identity
+    provider, entityID https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php (SIRTFI asserted,
+    first seen 2019-06-02), alongside biu.ac.il, haifa.ac.il, huji.ac.il, technion.ac.il and
+    weizmann.ac.il. The SAML 2.0 metadata document is live, public and machine-readable, and the
+    operator is IUCC, not TAU. idp.tau.ac.il resolves to a campus address but refuses connections
+    on both 80 and 443 from the public internet.
+  humanURL: https://technical.edugain.org/entities
+  baseURL: https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php
+  tags:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - eduGAIN
+  - IUCC
+  - Single Sign-On
+  tags_raw:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - eduGAIN
+  - IUCC
+  - Single Sign-On
+  properties:
+  - type: Documentation
+    url: https://iif.iucc.ac.il
+  - type: Conformance
+    url: conformance/tel-aviv-university-conformance.yml
+common:
+- type: Website
+  url: https://english.tau.ac.il/
+- type: TermsOfService
+  url: https://english.tau.ac.il/terms_of_use
+- type: Blog
+  url: https://english.tau.ac.il/news
+- type: BlogRSS
+  url: https://english.tau.ac.il/rss.xml
+- type: ResearchRepository
+  url: https://cris.tau.ac.il/
+- type: LibraryCatalog
+  url: https://data.tau.ac.il/
+- type: CourseCatalog
+  url: https://www.ims.tau.ac.il/Tal/KR/Search_P.aspx
+- type: IdentityFederation
+  url: https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php
+- type: AIPolicy
+  url: https://innovative-learning.tau.ac.il/Responsible_use_of_AI
+- type: AITooling
+  url: https://innovative-learning.tau.ac.il/Main_AI_tools
+- type: LinkedIn
+  url: https://il.linkedin.com/school/tel-aviv-university/
+- type: Twitter
+  url: https://x.com/telavivuni
+- type: Conformance
+  url: conformance/tel-aviv-university-conformance.yml
+- type: DomainSecurity
+  url: security/tel-aviv-university-domain-security.yml
+- type: Plans
+  url: plans/tel-aviv-university-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/tel-aviv-university-rate-limits.yml
+- type: FinOps
+  url: finops/tel-aviv-university-finops.yml
+- type: Review
+  url: review.yml
+x-coverage:
+  state: none
+  reason: tenant_only
+  generated: '2026-08-30'
+  method: probed
+  detail: >-
+    Every surface class the university pipeline hunts was probed on 2026-08-30 and Tel Aviv
+    University operates no institution-owned public API. A 90-name DNS sweep of tau.ac.il found
+    no api., developer., opendata., services., swagger., graphql. or rest. host; data.tau.ac.il
+    and digital.tau.ac.il exist only as vanity redirects (data. lands on the Ex Libris Primo
+    tenant). dspace.tau.ac.il and idp.tau.ac.il resolve to campus addresses but refuse
+    connections on 80 and 443 from the public internet, so neither is a public surface. The
+    library and research surfaces are all real and all tenant: Alma OAI-PMH 2.0 and SRU 1.2 on
+    tau.alma.exlibrisgroup.com (both live, keyless, verified), Primo VE discovery on
+    tau.primo.exlibrisgroup.com, and the Elsevier Pure CRIS at cris.tau.ac.il whose OAI-PMH
+    Identify names "Pure OAI Repository" and purehosted@elsevier.com — an Elsevier-hosted
+    deployment on a TAU-branded CNAME, not TAU engineering. Its Pure Web Service returns 401
+    without an institution key and cris.tau.ac.il/en/datasets/ is behind a Cloudflare interstitial
+    (HTTP 403), while the /ws/oai path is unchallenged. Identity federation is a real find and a
+    negative one: TAU has no eduGAIN-registered entity, only a tau.ac.il shibMD:Scope on the IUCC
+    national proxy IdP. The only machine-readable documents TAU serves from its own hosts are two
+    Drupal RSS 2.0 feeds (www.tau.ac.il/rss.xml, english.tau.ac.il/rss.xml, both 200 and
+    populated); the public course search at www.ims.tau.ac.il/Tal/KR/Search_P.aspx is an HTML
+    form that POSTs to Search_L.aspx and returns HTML. No llms.txt, no /.well-known/security.txt,
+    no apis.json and no sitemap.xml are served. Two entries carried by the June 2026 profile were
+    removed in this run as misattributions rather than gaps: an "Alma / OAI-PMH" entry whose only
+    URL was Ex Libris's own generic vendor documentation, now re-based on the real live TAU
+    tenant endpoint; and an "Unofficial tau-tools" API entry plus a GitHubOrganization pointer at
+    github.com/arazimproject — a student club's credential-scraping Python library that badges
+    itself "tau-unofficial" and is neither operated nor endorsed by the university. It is
+    documented in review.yml and is deliberately not credited as a TAU surface.
+  evidence:
+  - url: https://tau.alma.exlibrisgroup.com/view/oai/972TAU_INST/request?verb=Identify
+    status: 200
+  - url: https://tau.alma.exlibrisgroup.com/view/sru/972TAU_INST?version=1.2&operation=explain
+    status: 200
+  - url: https://cris.tau.ac.il/ws/oai?verb=Identify
+    status: 200
+  - url: https://cris.tau.ac.il/ws/api/524/openapi.json
+    status: 401
+  - url: https://cris.tau.ac.il/en/datasets/
+    status: 403
+  - url: https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php
+    status: 200
+  - url: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
+    status: 200
+  - url: https://english.tau.ac.il/rss.xml
+    status: 200
+  - url: https://www.tau.ac.il/rss.xml
+    status: 200
+  - url: https://www.ims.tau.ac.il/Tal/KR/Search_P.aspx
+    status: 200
+  - url: https://english.tau.ac.il/terms_of_use
+    status: 200
+  - url: https://innovative-learning.tau.ac.il/Responsible_use_of_AI
+    status: 200
+  - url: https://innovative-learning.tau.ac.il/Main_AI_tools
+    status: 200
+  - url: https://english.tau.ac.il/
+    status: 200
+  - url: https://data.tau.ac.il/
+    status: 200
+  - url: https://www.tau.ac.il/llms.txt
+    status: 403
+  - url: https://www.tau.ac.il/.well-known/security.txt
+    status: 403
+  - url: https://english.tau.ac.il/apis.json
+    status: 404
+  - url: https://www.tau.ac.il/sitemap.xml
+    status: 404
+  - url: https://api.tau.ac.il/
+    status: 0
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -2,14 +2,20 @@
   "repo": "tel-aviv-university",
   "feeds": [
     {
-      "source": "https://english.tau.ac.il/",
+      "source": "https://english.tau.ac.il/news",
       "feed_url": "https://english.tau.ac.il/news",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
+    },
+    {
+      "source": "https://english.tau.ac.il/terms_of_use",
+      "feed_url": "https://english.tau.ac.il/terms_of_use",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-22T20:08:02Z"
+  "fetched": "2026-08-30T22:33:40Z"
 }
