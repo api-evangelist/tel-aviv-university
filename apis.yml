@@ -89,7 +89,7 @@ apis:
   - Library
   - OAI-PMH
   - Alma
-  - ExLibris
+  - Ex Libris
   - Metadata
   - Harvesting
   tags_raw:
@@ -120,7 +120,7 @@ apis:
   - SRU
   - Search
   - Alma
-  - ExLibris
+  - Ex Libris
   - Catalog
   tags_raw:
   - Library
@@ -186,7 +186,7 @@ apis:
   - Library
   - Discovery
   - Primo
-  - ExLibris
+  - Ex Libris
   - Catalog
   tags_raw:
   - Library
