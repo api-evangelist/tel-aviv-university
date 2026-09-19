@@ -153,7 +153,7 @@ apis:
   baseURL: https://cris.tau.ac.il/ws/oai
   tags:
   - Research Repository
-  - CRIS
+  - CRI
   - OAI-PMH
   - Pure
   - Elsevier
@@ -221,7 +221,7 @@ apis:
   - Shibboleth
   - eduGAIN
   - IUCC
-  - Single Sign-On
+  - SSO
   tags_raw:
   - Identity Federation
   - SAML
