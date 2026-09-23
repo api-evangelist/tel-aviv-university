@@ -3,7 +3,7 @@ name: Tel Aviv University
 description: Tel Aviv University public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
   - date: '2026-06-03'
     rating: 2
@@ -52,3 +52,83 @@ reviews:
       - url: https://api-na.hosted.exlibrisgroup.com/
         status: 404
         note: ExLibris API gateway root returns 404; real calls use versioned paths with API keys.
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the API Evangelist university pipeline, which settles WHO OPERATES each
+      surface before any artifact is saved. Verdict unchanged in substance and sharper in detail:
+      Tel Aviv University operates no institution-owned public API. A 90-name DNS sweep of
+      tau.ac.il found no api./developer./opendata./services./graphql./swagger. host; dspace and
+      idp resolve to campus addresses but refuse public connections. Every callable surface is a
+      tenant deployment and is now recorded as one, with live keyless endpoints found for the
+      first time: Ex Libris Alma OAI-PMH 2.0 and SRU 1.2 on tau.alma.exlibrisgroup.com, and the
+      Elsevier Pure CRIS OAI-PMH at cris.tau.ac.il/ws/oai. The June 2026 profile's "Alma /
+      OAI-PMH" entry pointed only at Ex Libris's generic vendor documentation and has been
+      re-based on TAU's real tenant endpoint. Identity federation is a real find and a negative
+      one: TAU publishes no eduGAIN-registered entity, only a tau.ac.il shibMD:Scope on IUCC's
+      national proxy IdP. Two June entries were removed as misattributions: the "Unofficial
+      tau-tools" API entry and the GitHubOrganization pointer at github.com/arazimproject. That
+      project is a student club's Python library that logs in with a student's own credentials
+      and scrapes Moodle and IMS, badges itself "tau-unofficial", and is neither operated nor
+      endorsed by the university; crediting it to TAU inflated the institution's footprint with
+      someone else's engineering. It remains documented here and is deliberately not listed as a
+      TAU surface. There is no official institution-wide GitHub organisation (a GitHub org search
+      returns only lab and student orgs). Rated 2 (tenant-only: real records, vendor contracts).
+    endpoints:
+      - url: https://tau.alma.exlibrisgroup.com/view/oai/972TAU_INST/request?verb=Identify
+        status: 200
+        note: Alma OAI-PMH 2.0, live and keyless. repositoryName 972TAU, adminEmail on tauex.tau.ac.il.
+      - url: https://tau.alma.exlibrisgroup.com/view/sru/972TAU_INST?version=1.2&operation=explain
+        status: 200
+        note: Alma SRU 1.2 explainResponse, 205,734 bytes, keyless.
+      - url: https://cris.tau.ac.il/ws/oai?verb=Identify
+        status: 200
+        note: Elsevier Pure OAI-PMH. Identify names "Pure OAI Repository", purehosted@elsevier.com.
+      - url: https://cris.tau.ac.il/ws/api/524/openapi.json
+        status: 401
+        note: Pure Web Service is gated - "Please provide a valid API key for access."
+      - url: https://cris.tau.ac.il/en/datasets/
+        status: 403
+        note: Cloudflare interstitial on the portal HTML; the /ws/oai machine path is unchallenged.
+      - url: https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php
+        status: 200
+        note: IUCC national proxy IdP SAML metadata carrying shibmd:Scope tau.ac.il. Operator is IUCC.
+      - url: https://english.tau.ac.il/rss.xml
+        status: 200
+        note: Drupal RSS 2.0, 869,945 bytes, 10 items. TAU's own host - the only self-served machine format.
+      - url: https://www.tau.ac.il/rss.xml
+        status: 200
+        note: Hebrew Drupal RSS 2.0, 254,371 bytes.
+      - url: https://www.ims.tau.ac.il/Tal/KR/Search_P.aspx
+        status: 200
+        note: Public timetable and course search. HTML form POSTing to Search_L.aspx; no API behind it.
+      - url: https://innovative-learning.tau.ac.il/Responsible_use_of_AI
+        status: 200
+        note: Institutional guidance for students on responsible generative-AI use.
+      - url: https://innovative-learning.tau.ac.il/Main_AI_tools
+        status: 200
+        note: Institutional AI tooling guidance for faculty.
+      - url: https://english.tau.ac.il/terms_of_use
+        status: 200
+        note: Terms of use. No separate privacy policy page was found on either language site.
+      - url: https://data.tau.ac.il/
+        status: 200
+        note: TAU vanity host; 302s to the Primo tenant. Not an open-data portal.
+      - url: https://www.tau.ac.il/llms.txt
+        status: 403
+        note: Not served. nginx returns a blanket 403 for unknown paths on this host.
+      - url: https://www.tau.ac.il/.well-known/security.txt
+        status: 403
+        note: Not served.
+      - url: https://english.tau.ac.il/apis.json
+        status: 404
+        note: No apis.json.
+      - url: https://www.tau.ac.il/sitemap.xml
+        status: 404
+        note: No sitemap.
+      - url: https://api.tau.ac.il/
+        status: 0
+        note: Does not resolve. Neither do developer., opendata., services., swagger., graphql.
+      - url: https://github.com/arazimproject
+        status: 200
+        note: Live, but a student club - not TAU's GitHub org. Pointer removed from apis.yml.

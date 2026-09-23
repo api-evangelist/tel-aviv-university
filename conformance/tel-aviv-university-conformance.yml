@@ -1,0 +1,113 @@
+---
+# authorship: written by API Evangelist tooling during the university pipeline run of
+# 2026-08-30. Every claim below was probed live against the named URL; nothing is inferred
+# from a prose statement on a tau.ac.il page, and no conformance is claimed for a standard
+# that was not observed in a response.
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live probes of every Tel Aviv University surface on 2026-08-30 (OAI-PMH Identify /
+  ListMetadataFormats / ListSets / ListRecords, SRU explain, SAML metadata retrieval, eduGAIN
+  entity database). No specification document was available to read conformance from, because
+  Tel Aviv University publishes no institution-operated API contract.
+docs: https://en-libraries.tau.ac.il/
+note: >-
+  Conformance is scored against the Kin Score `education` regulatory regime's standards[].
+  IMPORTANT: every conforming surface below carries x-operator `tenant` — the protocol
+  implementation belongs to Ex Libris, Elsevier or IUCC, and only the records and the scope value
+  belong to Tel Aviv University. Nothing here is Tel Aviv University's own engineering, and the
+  institution operates no contract of its own from which conformance could be derived. Entries
+  marked conforms: false were probed and not found; none is inferred from prose.
+standards:
+- id: oai-pmh
+  conforms: true
+  x-operator: tenant
+  evidence: >-
+    Two independent, live, keyless OAI-PMH 2.0 endpoints. (1) Ex Libris Alma:
+    https://tau.alma.exlibrisgroup.com/view/oai/972TAU_INST/request?verb=Identify returns 200
+    text/xml with protocolVersion 2.0, repositoryName "972TAU", repositoryIdentifier
+    alma.972TAU_INST, sampleIdentifier oai:alma.972TAU_INST:12345678, deletedRecord "transient",
+    granularity YYYY-MM-DDThh:mm:ssZ and an adminEmail on tauex.tau.ac.il; ListSets returns TAU's
+    own published sets (BrowZine and per-library lendable journal/book sets). (2) Elsevier Pure:
+    https://cris.tau.ac.il/ws/oai?verb=Identify returns 200 application/xml with protocolVersion
+    2.0, repositoryName "Pure OAI Repository", adminEmail purehosted@elsevier.com,
+    earliestDatestamp 2020-03-22T11:10:51Z; ListMetadataFormats returns oai_dc, qdc, mods,
+    mods_swepub, nl_didl, xmetadiss and uketd_dc, and ListSets returns persons:all,
+    publications:all, publications:withFiles and per-year publication sets.
+- id: saml
+  conforms: true
+  x-operator: tenant
+  evidence: >-
+    SAML 2.0 metadata for Tel Aviv University's federated identity is published, but by the
+    Inter-University Computation Center, not by TAU. https://iif-ng.iucc.ac.il/sp/saml2/idp/
+    metadata.php returns 200 (11,591 bytes) and carries <shibmd:Scope regexp="false">tau.ac.il
+    </shibmd:Scope> on entityID https://iif-ng.iucc.ac.il/sp/saml2/idp/metadata.php. The eduGAIN
+    entity database (technical.edugain.org, 10,607 entities read on 2026-08-30) contains exactly
+    one entity scoped to tau.ac.il and it is that IUCC proxy IdP — federation code IUCCIF, roles
+    IDPSSODescriptor, SIRTFI asserted, first seen 2019-06-02. Tel Aviv University publishes no
+    eduGAIN-registered entity of its own, and idp.tau.ac.il refuses connections on 80 and 443
+    from the public internet.
+- id: shibboleth
+  conforms: true
+  x-operator: tenant
+  evidence: >-
+    The same IUCC metadata document uses the Shibboleth metadata extension namespace
+    urn:mace:shibboleth:metadata:1.0, declaring tau.ac.il as one of eight institutional scopes
+    (alongside biu.ac.il, haifa.ac.il, huji.ac.il, iucc.ac.il, mail.iucc.ac.il, technion.ac.il and
+    weizmann.ac.il). The Shibboleth deployment is IUCC's national proxy; TAU is a scope within it.
+- id: sru
+  conforms: true
+  x-operator: tenant
+  evidence: >-
+    https://tau.alma.exlibrisgroup.com/view/sru/972TAU_INST?version=1.2&operation=explain returns
+    200 text/xml, a 205,734-byte SRU 1.2 explainResponse with recordSchema
+    http://explain.z3950.org/dtd/2.1/ in the http://www.loc.gov/zing/srw/ namespace. Keyless.
+    Not a named standard in the education regime's standards[] list; recorded because it is a
+    real, live, machine-readable search protocol on the institution's library record.
+- id: orcid
+  conforms: false
+  evidence: >-
+    Probed directly against the CRIS person records rather than inferred. ListRecords over
+    set=persons:all returns 200 for metadataPrefix oai_dc (91,915 bytes) and qdc (91,909 bytes),
+    and neither response contains the string "orcid" in any casing. The mods and xmetadiss
+    prefixes return 670 and 675 bytes respectively (no records). No ORCID iD is emitted anywhere
+    in TAU's public research metadata.
+- id: datacite
+  conforms: false
+  evidence: >-
+    No DataCite-minted identifiers were found. The DOIs present in ListRecords over
+    set=publications:all are publisher Crossref DOIs on cited articles (for example
+    10.1146/annurev-vision-082114-035518, Annual Reviews), not identifiers minted by or for Tel
+    Aviv University. No DataCite metadata prefix is offered by either OAI-PMH endpoint.
+- id: crossref
+  conforms: false
+  evidence: >-
+    Crossref DOIs appear inside TAU's publication records as references to externally published
+    articles. Tel Aviv University operates no Crossref deposit surface of its own and no Crossref
+    API integration is published or documented on any tau.ac.il host.
+- id: lti
+  conforms: false
+  evidence: >-
+    moodle.tau.ac.il returns 200 and is TAU's Moodle LMS, but no LTI tool-configuration, platform
+    registration, or /.well-known/ LTI document is publicly served, and no LTI conformance claim
+    appears on any tau.ac.il host.
+- id: scim
+  conforms: false
+  evidence: >-
+    No /scim/v2 or ServiceProviderConfig endpoint responds on any tau.ac.il host, and identity
+    provisioning is not documented publicly. TAU's federated identity is delegated to IUCC.
+- id: oneroster
+  conforms: false
+  evidence: >-
+    No OneRoster endpoint or claim found. TAU's student information system (my.tau.ac.il, an
+    OutSystems application) and its course catalogue (www.ims.tau.ac.il) are credentialed or
+    HTML-only with no roster interchange surface.
+- id: ed-fi
+  conforms: false
+  evidence: No Ed-Fi implementation, ODS, or claim found on any tau.ac.il host. Ed-Fi is a US K-12 standard.
+- id: caliper
+  conforms: false
+  evidence: No IMS Caliper Analytics endpoint, sensor, or claim found on any tau.ac.il host.
+- id: qti
+  conforms: false
+  evidence: No QTI assessment interchange surface or claim found on any tau.ac.il host.
