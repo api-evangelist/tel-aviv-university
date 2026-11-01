@@ -1,4 +1,4 @@
-# Tel Aviv University (tel-aviv-university)
+# Tel Aviv University
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,56 +64,113 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Tel Aviv University (TAU) is Israel's largest public research university, ranked #209 in the QS World University Rankings 2025. This repository catalogs TAU's public developer/API footprint as an [APIs.json](https://apisjson.org) provider profile. TAU publishes no centralized public developer portal; its confirmed machine-accessible surface is limited to standard third-party platform endpoints (ExLibris Primo/Alma) plus unofficial community tooling.
+Tel Aviv University (TAU / אוניברסיטת תל אביב) is Israel's largest university, a public research institution in Tel Aviv with roughly 30,000 students across nine faculties, and a member of the Israeli research-university group served by the Inter-University Computation Center (IUCC). Re-profiled on 2026-08-30 with operator attribution settled before any artifact was saved: TAU operates NO central developer portal, NO open-data portal and NO institution-operated public API. api.tau.ac.il, developer.tau.ac.il, opendata.tau.ac.il and services.tau.ac.il do not resolve; data.tau.ac.il and digital.tau.ac.il resolve only as vanity redirects. Every machine-readable, callable surface TAU has is a vendor product deployed under the institution's name and is recorded here as a TENANT relationship, not as TAU engineering: the Ex Libris Alma OAI-PMH 2.0 service and SRU 1.2 search service for the library record, the Ex Libris Primo VE discovery layer (institution code 972TAU_INST:TAU, branded "DaTA Search"), the Elsevier Pure CRIS at cris.tau.ac.il whose OAI-PMH endpoint self-identifies as "Pure OAI Repository" administered from purehosted@elsevier.com, and TAU's SAML identity, which is a tau.ac.il scope on the IUCC national proxy identity provider in eduGAIN rather than a TAU- registered entity of its own. The only machine-readable documents TAU itself serves from its own hosts are the Drupal RSS 2.0 news feeds at www.tau.ac.il/rss.xml and english.tau.ac.il/rss.xml, and its public timetable and course search at www.ims.tau.ac.il/Tal/KR/Search_P.aspx is an HTML form with no API behind it. TAU publishes an institutional generative-AI guidance set for students and faculty through its Deanery for Innovation in Teaching and Learning. There is no official institution-wide GitHub organisation; code lives in lab and student-club orgs.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/tel-aviv-university/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=tel-aviv-university-api-evangelist&utm_content=repo
+**Areas:** University · Higher Education · Education · Israel · Research · Research Repository · Library · Discovery · OAI-PMH · Identity Federation · Course Catalog · Middle East
 
-## Type
+## Tel Aviv University on APIs.io
 
-- Type: Index
-- Position: Consumer
-- Access: 3rd-Party
+Everything profiled for Tel Aviv University is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/tel-aviv-university/](https://apis.io/providers/tel-aviv-university/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-Education, Higher Education, University, Israel, Library, Discovery, Research
+- [TAU Libraries Alma OAI-PMH Metadata Harvesting](https://apis.io/apis/tel-aviv-university/alma-oai-pmh/) — Open Archives Initiative Protocol for Metadata Harvesting 2.0 service for the Tel Aviv University library record, served from TAU's Ex Libris Alma tenant.…
+- [TAU Libraries Alma SRU Search](https://apis.io/apis/tel-aviv-university/alma-sru/) — SRU (Search/Retrieve via URL) 1.2 search service over the Tel Aviv University library catalogue, served from TAU's Ex Libris Alma tenant. Verified live and…
+- [TAU Research Portal (Elsevier Pure) OAI-PMH](https://apis.io/apis/tel-aviv-university/cris-oai-pmh/) — Tel Aviv University's current research information system is Elsevier Pure, published as the TAU Research Portal at cris.tau.ac.il. The host sits on TAU's…
+- [TAU Libraries Primo VE Discovery (DaTA Search)](https://apis.io/apis/tel-aviv-university/primo-discovery/) — Tel Aviv University Libraries run Ex Libris Primo VE for catalogue discovery, branded "DaTA Search", institution code 972TAU_INST:TAU, on the TAU-specific…
+- [TAU SAML Identity in the IUCC Identity Federation](https://apis.io/apis/tel-aviv-university/iucc-identity-federation/) — Tel Aviv University federates through the IUCC Identity Federation (IUCCIF), the Israeli national federation operated by the Inter-University Computation…
 
-## APIs
+### Published properties
 
-- **TAU Libraries Primo Discovery (DaTA Search)** — ExLibris Primo discovery (institution code 972TAU_INST:TAU); standard Primo Search REST API behind it. Docs: https://developers.exlibrisgroup.com/primo/apis/ — Discovery: https://tau.primo.exlibrisgroup.com/discovery/search?vid=972TAU_INST:TAU&lang=en
-- **TAU Libraries Alma / OAI-PMH Metadata Harvesting** — Alma-backed library platform exposing standard OAI-PMH and Alma REST APIs (institution-provisioned). Docs: https://developers.exlibrisgroup.com/alma/integrations/oai/
-- **Unofficial tau-tools (Moodle / IMS / course data)** — community/student wrapper of TAU Moodle, IMS grade system, and course/plan data. Not official. Docs: https://github.com/arazimproject/tau-tools
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans
+#### JSON-LD (1)
 
-- [plans/tel-aviv-university-plans-pricing.yml](plans/tel-aviv-university-plans-pricing.yml)
+Linked-data contexts for the provider's vocabulary.
 
-## Rate Limits
+- [Tel Aviv University Context](https://apis.io/jsonld/tel-aviv-university/tel-aviv-university-context/)
 
-- [rate-limits/tel-aviv-university-rate-limits.yml](rate-limits/tel-aviv-university-rate-limits.yml)
+#### Security (1)
 
-## FinOps
+Authentication, trust centre, and vulnerability disclosure.
 
-- [finops/tel-aviv-university-finops.yml](finops/tel-aviv-university-finops.yml)
+- [Tel Aviv University Domain Security](https://apis.io/security/tel-aviv-university/tel-aviv-university-domain-security/)
 
-## Timestamps
+#### Plans and pricing (1)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+Published plans, tiers and prices.
 
-## Common Properties
+- [Tel Aviv University Plans Pricing](https://apis.io/plans/tel-aviv-university/tel-aviv-university-plans-pricing/)
 
-- Website: https://english.tau.ac.il/
-- GitHub: https://github.com/arazimproject
-- LinkedIn: https://il.linkedin.com/school/tel-aviv-university/
-- Twitter/X: https://x.com/telavivuni
-- Review: [review.yml](review.yml)
+#### Rate limits (1)
 
-## Notes
+Published request limits.
 
-All cataloged URLs were probed live on 2026-06-03. No TAU-specific public developer portal or open-data API program was found. The Primo/Alma APIs are platform-standard (ExLibris) and require institution-provisioned API keys — they are documented by ExLibris, not by TAU. The `tau-tools` library is unofficial third-party/community tooling and may break or conflict with TAU terms of use. No endpoints were fabricated; absence of a public API is reported honestly.
+- [Tel Aviv University Rate Limits](https://apis.io/rate-limits/tel-aviv-university/tel-aviv-university-rate-limits/)
 
-## Maintainers
+#### FinOps (1)
 
-- Kin Lane — kin@apievangelist.com
+What the API costs to run, by operation.
+
+- [Tel Aviv University Finops](https://apis.io/finops/tel-aviv-university/tel-aviv-university-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://english.tau.ac.il/)
+- [Blog](https://english.tau.ac.il/news)
+- [Terms of service](https://english.tau.ac.il/terms_of_use)
+
+## API Evangelist rating
+
+**Kin Score 19.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 11.7 |
+| Contract governance | 18.2 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/tel-aviv-university/](https://apis.io/providers/tel-aviv-university/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Tel Aviv University: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/tel-aviv-university/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
